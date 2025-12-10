@@ -1,0 +1,170 @@
+.yoga-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background);
+    /* Fallback */
+}
+
+.yoga-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    padding: 0.5rem;
+}
+
+.back-button {
+    background: var(--surface);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    /* Matches .btn and .input radius */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow);
+}
+
+.back-button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px -1px rgba(21, 128, 61, 0.3);
+}
+
+.page-title {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.95);
+    /* High opacity for readability */
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+}
+
+.model-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.embed-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.iframe-style {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.info-grid {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.95);
+    /* Almost solid white */
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    /* Matches .track-card radius */
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Decorative leaves - visible but positioned to not obstruct too much */
+.leaf-decoration {
+    position: fixed;
+    z-index: 10;
+    /* Above model, below UI */
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.top-right {
+    top: -50px;
+    right: -50px;
+    transform: rotate(15deg);
+}
+
+.bottom-left {
+    bottom: -30px;
+    left: -30px;
+    transform: rotate(-15deg);
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+        bottom: 1rem;
+        gap: 0.75rem;
+        max-height: 35vh;
+        overflow-y: auto;
+        padding-bottom: 1rem;
+        /* Space for scroll */
+    }
+
+    .page-title {
+        font-size: 1.2rem;
+        top: 5rem;
+        width: auto;
+        padding: 0.5rem 1.5rem;
+    }
+
+    .info-card {
+        padding: 1rem;
+    }
+}
+
+export default YogaSession;
