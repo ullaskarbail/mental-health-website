@@ -15,6 +15,10 @@ import NQueensGame from './components/NQueensGame';
 import MemeGenerator from './components/MemeGenerator';
 import CounsellorList from './components/CounsellorList';
 
+import AICounsellorSession from './components/AICounsellorSession';
+import DoctorList from './components/DoctorList';
+import AppointmentBooking from './components/AppointmentBooking';
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -34,6 +38,9 @@ const App = () => {
                 <Route path="/nqueens" element={<NQueensGame />} />
                 <Route path="/meme" element={<MemeGenerator />} />
                 <Route path="/counsellors" element={<CounsellorList />} />
+                <Route path="/doctors" element={<DoctorList />} />
+                <Route path="/talk-to-ai/:avatarId" element={<AICounsellorSession />} />
+                <Route path="/book-appointment/:counsellorId" element={<AppointmentBooking />} />
                 <Route path="/" element={<Navigate to="/login" replace />} />
             </Routes>
         </BrowserRouter>

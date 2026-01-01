@@ -1395,3 +1395,253 @@ body {
     0% { transform: scale(0.6); }
     100% { transform: scale(1); }
 }
+
+/* Anam AI Modal Styles */
+.anam-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.anam-modal {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    animation: slideUpFade 0.3s ease-out;
+}
+
+.anam-header {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.anam-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.anam-content {
+    padding: 1.5rem;
+    background: #f8fafc;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: black;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-spinner {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.anam-footer {
+    padding: 1rem;
+    text-align: center;
+    background: white;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+
+/* AI Counsellor Session Page */
+.ai-session-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+}
+
+.ai-session-container {
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.ai-session-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: white;
+}
+
+.ai-session-header h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.end-session-btn {
+    padding: 0.75rem 1.5rem;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.end-session-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.ai-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ai-session-controls {
+    padding: 1.5rem;
+    text-align: center;
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 10;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error-message-large {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.error-message-large h3 {
+    color: #ef4444;
+    margin-bottom: 1rem;
+}
+
+
+/* Appointment Booking Page */
+.appointment-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.appointment-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.doctor-info-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary);
+}
+
+.doctor-info-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+}
+
+.doctor-info-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+}
+

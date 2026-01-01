@@ -94,9 +94,17 @@ const Dashboard = () => {
                         <div className="track-card animate-slide-up">
                             <div className="track-icon">🤝</div>
                             <h4>Counsellors</h4>
-                            <p>Get Support</p>
+                            <p>AI Support</p>
                             <Link to="/counsellors">
-                                <button className="btn-small">Find Help</button>
+                                <button className="btn-small">Talk to AI</button>
+                            </Link>
+                        </div>
+                        <div className="track-card animate-slide-up">
+                            <div className="track-icon">📅</div>
+                            <h4>Appointments</h4>
+                            <p>Book Doctor</p>
+                            <Link to="/doctors">
+                                <button className="btn-small">Book Now</button>
                             </Link>
                         </div>
                     </div>

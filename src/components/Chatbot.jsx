@@ -1,14 +1,33 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
-const Chatbot = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const Chatbot = ({ isOpen: propIsOpen, onToggle }) => {
+    const [internalIsOpen, setInternalIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         { role: 'assistant', content: 'Hello! I am your AI companion. How are you feeling today?' }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
+
+    const isControlled = propIsOpen !== undefined;
+    const isOpen = isControlled ? propIsOpen : internalIsOpen;
+
+    const handleToggle = () => {
+        if (isControlled) {
+            onToggle && onToggle(!isOpen);
+        } else {
+            setInternalIsOpen(!isOpen);
+        }
+    };
+
+    const handleClose = () => {
+        if (isControlled) {
+            onToggle && onToggle(false);
+        } else {
+            setInternalIsOpen(false);
+        }
+    };
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -44,7 +63,7 @@ const Chatbot = () => {
             {/* Floating Action Button */}
             <button
                 className={`chatbot-fab ${isOpen ? 'open' : ''}`}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={handleToggle}
                 aria-label="Toggle Chatbot"
             >
                 {isOpen ? '✕' : '💬'}
@@ -55,7 +74,7 @@ const Chatbot = () => {
                 <div className="chatbot-window">
                     <div className="chatbot-header">
                         <h3>AI Companion</h3>
-                        <button onClick={() => setIsOpen(false)} className="close-chat">✕</button>
+                        <button onClick={handleClose} className="close-chat">✕</button>
                     </div>
                     <div className="chatbot-messages">
                         {messages.map((msg, index) => (

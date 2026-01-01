@@ -1,47 +1,48 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import BackButton from './BackButton';
 
 const counsellors = [
     {
-        id: 1,
-        name: "Dr. Sarah Johnson",
-        specialization: "Anxiety & Depression",
-        experience: "10+ years",
-        contact: "sarah.j@example.com",
-        image: "👩‍⚕️"
+        id: 'ai-1',
+        name: "Cara (AI Counsellor)",
+        specialization: "24/7 Emotional Support",
+        experience: "Always Learning",
+        contact: "Video Call",
+        image: "🤖",
+        avatarId: "30fa96d0-26c4-4e55-94a0-517025942e18",
+        voiceId: "6bfbe25a-979d-40f3-a92b-5394170af54b"
     },
     {
-        id: 2,
-        name: "Dr. Michael Chen",
-        specialization: "Stress Management",
-        experience: "8 years",
-        contact: "michael.c@example.com",
-        image: "👨‍⚕️"
+        id: 'ai-2',
+        name: "Leo (AI Counsellor)",
+        specialization: "Stress & Anxiety",
+        experience: "Always Learning",
+        contact: "Video Call",
+        image: "🤖",
+        avatarId: "81b70170-2e80-4e4b-a6fb-e04ac110dc4b",
+        voiceId: "499cadd6-430b-44ae-a5a3-42e367187582"
     },
     {
-        id: 3,
-        name: "Ms. Emily Davis",
-        specialization: "Mindfulness & Meditation",
-        experience: "5 years",
-        contact: "emily.d@example.com",
-        image: "👩‍💼"
-    },
-    {
-        id: 4,
-        name: "Dr. Robert Wilson",
-        specialization: "Trauma & PTSD",
-        experience: "15+ years",
-        contact: "robert.w@example.com",
-        image: "👨‍💼"
+        id: 'ai-3',
+        name: "Dani (AI Counsellor)",
+        specialization: "Mindfulness Coach",
+        experience: "Always Learning",
+        contact: "Video Call",
+        image: "🤖",
+        avatarId: "ccf00c0e-7302-455b-ace2-057e0cf58127",
+        voiceId: "79abfccb-e83b-4ad4-9d80-f8d3e6e3141d"
     }
 ];
 
 const CounsellorList = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="counsellor-page animate-fade-in">
             <BackButton />
             <div className="container">
-                <h2 className="section-title" style={{ color: 'var(--primary)', marginBottom: '3rem' }}>Professional Support</h2>
+                <h2 className="section-title" style={{ color: 'var(--primary)', marginBottom: '3rem' }}>AI Support</h2>
                 <div className="counsellor-grid">
                     {counsellors.map(counsellor => (
                         <div key={counsellor.id} className="counsellor-card animate-slide-up">
@@ -53,9 +54,12 @@ const CounsellorList = () => {
                                 <p><strong>Contact:</strong> {counsellor.contact}</p>
                             </div>
                             <div className="counsellor-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1rem' }}>
-                                <button className="btn-small">Book Appointment</button>
-                                <button className="btn-small" style={{ background: '#8b5cf6', borderColor: '#8b5cf6', color: 'white' }}>
-                                    📹 Video Call
+                                <button 
+                                    className="btn-small" 
+                                    style={{ background: 'var(--primary)', color: 'white', width: '100%' }}
+                                    onClick={() => navigate(`/talk-to-ai/${counsellor.avatarId}?name=${encodeURIComponent(counsellor.name)}&voiceId=${counsellor.voiceId}`)}
+                                >
+                                    Talk to {counsellor.name.split(' ')[0]}
                                 </button>
                             </div>
                         </div>
